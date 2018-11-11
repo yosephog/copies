@@ -1,0 +1,7 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+#define new(s) *((Person*)(malloc(sizeof(s))))
+#define println(d) (printf("%d\n", d))
+#define class struct
+#define public typedef

@@ -1,0 +1,10 @@
+strchar --> strips out empty lines uke 3 22.38
+waitpid --> uke5
+question
+Hvis det ikke er flere linjer å lese (brukeren vil avslutte), skal mysh avslutte
+ med statusverdi 0. NB! Dette er ikke det samme som å lese en tom linje! Når
+  man leser fra tastaturet, kan brukeren trykke på Ctrl+D for å angi at det
+   ikke er flere linjer å lese. HINT: Bruk funksjonsverdien som fgets
+   returnerer til å sjekke om det var flere linjer å lese.
+
+Sjekke om linjen avsluttes med en '&' (eventuelt etterfulgt av blanke). 
