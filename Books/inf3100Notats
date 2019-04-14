@@ -1,0 +1,146 @@
+
+	CHAPTER 1
+
+DBMS-> Data base mangement system. the software used for data base mangement.
+->Data base is a collection of information.
+..the database refer to the data that is maneged by the DBMS
+
+	CHAPTER 2
+
+ DATA MODEL.
+--> structure of the data,operation of the data,constrain of the data
+
+TWO TYPE OF DATA MODEL
+1. tre relatonal model
+2. the semistructured-data model, including XML
+
+OTHER DATA MODELS
+--> Adding obeject orented feature to the data.
+ thus--> valus can have structured rather than being elementry
+      --> Relation can have associated methods
+
+Attributs : the column names of a table.
+Schema : the name of the the relation and its attributes.
+ example--> Movies(title,year,length,genre)
+database scheme/relation database schema : one or more schemes.
+
+tupels--> the values of the attributes.(Gone with the wind,1939,231,drama) 
+  represantaion R(A,B,C)
+componenst-> the values of the attributes. the should be atomic.elementary
+type. for example-> Integer,String. not list or arrays.
+  represantaion of a scheme
+ Movies(title:string,year:integer,length:integer,genre:string)
+
+KEYS OF RELATIONS
+--> a set of attributes creats keys.
+     Movies(*title,*year,length,genre) * refers keys
+ Movis(
+	*title: String
+	*year: integer
+	length: integr 
+      )
+
+  2.3 DEFINING A RELATION SCHEMA IN SQL
+
+
+        CHAPTER 3
+ FUNCTIONAL DEPENDANCIES.
+
+Super key-: a set of attributes makeing up a key.
+
+ TYPES OF DEPENDECIES
+
+Trival dependencies-: the dependency of an attribute on a set of attribute where the attribute is the subset of set of attributes.
+ example Student(studentId,studentName,subjects)
+      studentId,studentName---->> studentId.
+
+Non Trival dependency--: it is the opposite of trival dependency. where an 
+attribute is dependant on a set of attribute but the attribute is not a subset of the set of attributes
+       studentid,studentName------> subject
+
+
+Multivalued dependency--: when two attributes are independent of each other.
+ for example--: bicyle(bikemodel,year,color)
+			(m1001,2007,black), (ml00l,2007,red)
+     so the year and colour are independent of each other.
+
+
+Transitive dependency--: a dependency formed indiractly by two functional depandancy.
+              person(book,author,author_age)
+              book--> author but author not--> book.
+    becuase the book can give you the author. but the author can give you different book.
+              author--> authourage
+
+
+   NORMALIZATION
+--> First ,second ,third normal form and BCNF.
+
+FIRST NORMAL FORM(1NF).
+.. No two can contain the same amount of information.
+   there can be a dublicate attribute values but as the whole. each row is different.
+      for example studenttable(name,age,subject)
+                   (yoseph,33,biology) (yoseph,33 chemistry)
+
+--> primary key is usully a singe column. but a set of columb is possible
+--> differnt column cant be used to fetch the same data.
+--> singel values and multiple is not allowed.
+          
+	NOT (yoseph,33,biology/chemistry)
+	 (yoseph,33 chemistry) (yoseph,33,biology) 
+
+--> repeted/redudant but the proper way for 1NF.
+
+
+ SECOND NORMAL FORM(2NF)
+
+--> if the primery key is a set of attributes then columens that are not part of the primery key needs the entire concateneted attributes for it's existance.
+--> if an attribute(not subset of the primery key) depends only on one attribute of the primery key then it fells the 2NF.
+		studentTable(studnetname,age,subject)
+for example--> primery key : studentName,age  
+		studentname--> age (correct) 
+		studentname-->subject(incorrect)
+		studentName,age-->subject
+ 
+
+
+THIRD NORDAL FORM(3NF)
+
+--> every non primery key attributs can be represented by the primery key.
+and it shouldnt be possible to use non primery key to represent other attributes.
+
+example-; newStudent(id,name,dob,street,city,state,zip)
+  primery key-: id.   so id->name,id->dob
+ but by using zip we can get city state zip->city,zip->state
+
+if such value is found we divide it in to two table'
+     newStudent(id,nam,dob,zip)  id primery key
+     AddressTable(zip,street,city,state) zip primerykey
+
+thus--> dublication is reduced,data integrity achived.
+
+
+BOYCE AND CODD NORMAL FORM(BCNF)
+ 
+-->MUST BE  in 3NF in th first place.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
